@@ -16,12 +16,10 @@ RUN set -ex \
     && rm -rf /var/lib/apt/lists/ \
     && apt-get autoremove --purge --quiet --yes \
     && apt-get purge --quiet --yes \
-    && ln -s /timesheets/.tksrc ~user/.tksrc \
+    && touch ~user/.tksrc \
     && mkdir -p ~user/.cache \
-    && ln -s /timesheets/.tksinfo ~user/.cache/tksinfo \
+    && touch ~user/.cache/tksinfo \
     && true
 
 USER user
-WORKDIR /timesheets
-VOLUME /timesheets
-CMD "tks -c /timesheets/*.tks"
+CMD "tks -c ./*.tks"
