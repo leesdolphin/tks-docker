@@ -16,10 +16,14 @@ RUN set -ex \
     && rm -rf /var/lib/apt/lists/ \
     && apt-get autoremove --purge --quiet --yes \
     && apt-get purge --quiet --yes \
+    && true
+
+
+USER user
+RUN set -ex
     && touch ~user/.tksrc \
     && mkdir -p ~user/.cache \
     && touch ~user/.cache/tksinfo \
     && true
 
-USER user
 CMD "tks -c ./*.tks"
