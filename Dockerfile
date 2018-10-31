@@ -24,5 +24,4 @@ RUN set -ex \
 USER user
 WORKDIR /timesheets
 VOLUME /timesheets
-
 CMD "tks -c /timesheets/*.tks"
