@@ -20,7 +20,7 @@ RUN set -ex \
 
 
 USER user
-RUN set -ex
+RUN set -ex \
     && touch ~user/.tksrc \
     && mkdir -p ~user/.cache \
     && touch ~user/.cache/tksinfo \
